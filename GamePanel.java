@@ -107,7 +107,7 @@ public class GamePanel extends JPanel implements ActionListener{
             }
         }
 
-        if (x[0] < 0 || x[0] > WIDTH || y[0] < 0 || y[0] > HEIGHT){
+        if (x[0] < -50 || x[0] > WIDTH || y[0] < -50 || y[0] > HEIGHT){
             running = false;
         }
 
