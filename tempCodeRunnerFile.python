@@ -1,0 +1,89 @@
+import simplegui
+
+xc1=-700
+xc2=-200
+y= 600
+count=1
+def draw_handler(canvas):
+    global xc1
+    global xc2
+    global y
+    global count
+    color= "RGB(0, 180, 242)"
+    color2= "RGB(210, 176, 89)"
+    canvas.draw_polygon([(0, 0), (0, 600), (600, 600)], 2, color, color)
+    canvas.draw_polygon([(0, 0), (600, 0), (600, 600)], 2, color, color)
+    canvas.draw_circle((600, 0), 100, 1, "Yellow", "Yellow")
+    for n in range(400, 500, 25):
+        canvas.draw_circle((xc1+n, 110), 30, 1, "White", "White")
+    for n in range(100, 200, 25):
+        canvas.draw_circle((xc2+n, 40), 30, 1, "White", "White")
+    xc1=xc1+1
+    xc2=xc2+1
+    if xc1>=800 and xc2>=800:
+        xc1=-700
+        xc2=-200
+    canvas.draw_line([y, 450], [y, 550], 3, "Black")
+    if count>=1 and count<=10:
+        canvas.draw_line([y, 485], [y-25, 485], 3, "Black")
+        canvas.draw_line([y, 485], [y+25, 485], 3, "Black")
+        canvas.draw_line([y-25, 485], [y-25, 465], 3, "Black")
+        canvas.draw_line([y+25, 485], [y+25, 505], 3, "Black")
+        canvas.draw_line([y, 550], [y-25, 550], 3, "Black")
+        canvas.draw_line([y-25, 550], [y-25, 575], 3, "Black")
+        canvas.draw_line([y, 550], [y+25, 550], 3, "Black")
+        canvas.draw_line([y+25, 550], [y+25, 525], 3, "Black")
+    if count>=11 and count<=20:
+        canvas.draw_line([y, 485], [y-22, 500], 3, "Black")
+        canvas.draw_line([y-22, 500], [y-47, 485], 3, "Black")
+        canvas.draw_line([y, 485], [y+22, 500], 3, "Black")
+        canvas.draw_line([y+22, 500], [y, 520], 3, "Black")
+        canvas.draw_line([y, 550], [y-22, 565], 3, "Black")
+        canvas.draw_line([y-22, 565], [y, 580], 3, "Black")
+        canvas.draw_line([y,550], [y+22, 565], 3, "Black")
+        canvas.draw_line([y+22, 565], [y+47, 550], 3, "Black")
+    if count>=21 and count<=31:
+        canvas.draw_line([y, 515], [y-30, 515], 3, "Black")
+        canvas.draw_line([y, 550], [y, 575], 3, "Black")
+        canvas.draw_line([y, 575], [y+25, 575], 3, "Black")
+    if count>=31 and count<=40:
+        canvas.draw_line([y, 485], [y-22, 500], 3, "Black")
+        canvas.draw_line([y-22, 500], [y-47, 485], 3, "Black")
+        canvas.draw_line([y, 485], [y+22, 500], 3, "Black")
+        canvas.draw_line([y+22, 500], [y, 520], 3, "Black")
+        canvas.draw_line([y, 550], [y-22, 565], 3, "Black")
+        canvas.draw_line([y-22, 565], [y, 580], 3, "Black")
+        canvas.draw_line([y,550], [y+22, 565], 3, "Black")
+        canvas.draw_line([y+22, 565], [y+47, 550], 3, "Black")   
+
+
+    canvas.draw_circle((y, 450), 20, 1, "Black", "Black")
+    y=y-5
+    if y<=-300:
+        y=600
+    for n in range (0, 600, 10):
+        canvas.draw_polygon ([(n, 600), (n+20, 600), (n+5, 560)], 2, "Green", "Green")
+    canvas.draw_polygon([(450, 350), (600, 350), (600, 600), (450, 600)], 2, color2, color2 )
+    canvas.draw_polygon([(500, 390), (575, 390), (575, 475), (500, 475)], 2, color, color)
+    canvas.draw_circle((565, 420), 20, 1, "Black", "Black")
+    canvas.draw_line([565, 440], [585, 500], 3, "Black")
+    canvas.draw_line([570, 450], [545, 500], 3, "Black")
+    if count>=1 and count<=10:
+        canvas.draw_line([545, 500], [515, 460], 3, "Black")
+    if count>=11 and count<=20:
+        canvas.draw_line([545, 500], [525, 450], 3, "Black")
+    if count>=21 and count<=30:
+        canvas.draw_line([545, 500], [535, 450], 3, "Black")
+    if count>=31 and count<=40:
+        canvas.draw_line([545, 500], [525, 450], 3, "Black")
+    canvas.draw_polygon([(575, 600), (575, 350), (600, 350), (600, 600)], 1, color2, color2)  
+    canvas.draw_polygon([(500, 475), (600, 475), (600, 600), (500, 600)], 1, color2, color2)
+    canvas.draw_polygon([(400, 350), (600, 250), (600, 350)], 2, "Red", "Red")
+    count=count+1
+    if count==41:
+        count=1
+    
+frame = simplegui.create_frame('Bye mom!', 600, 600)
+frame.set_canvas_background("Black")
+frame.set_draw_handler(draw_handler)
+frame.start()

@@ -5,7 +5,7 @@ import java.util.*;
 import javax.swing.Timer;
 
 public class GamePanel extends JPanel implements ActionListener{
-//eee
+
     private static final long serialVersionUID = 1L;
 
     static final int WIDTH = 500;
